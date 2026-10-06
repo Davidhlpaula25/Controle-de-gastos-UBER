@@ -16,6 +16,8 @@ export default function Login(){
    'auth/user-not-found':'Não existe uma conta com este e-mail.',
    'auth/wrong-password':'E-mail ou senha incorretos.',
    'auth/too-many-requests':'Muitas tentativas. Aguarde alguns minutos e tente novamente.',
+   'auth/unauthorized-domain':'Este domínio não está autorizado no Firebase. Adicione o domínio da Vercel em Authentication > Settings > Authorized domains.',
+   'auth/popup-blocked':'O navegador bloqueou a janela do Google. Permita pop-ups e tente novamente.',
    'auth/popup-closed-by-user':'A janela de login do Google foi fechada antes da conclusão.'
   };
   return messages[code||'']||'Não foi possível concluir o login. Verifique a configuração do Firebase.';
