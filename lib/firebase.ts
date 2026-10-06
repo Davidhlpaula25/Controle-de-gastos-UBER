@@ -11,11 +11,18 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const missingConfig = Object.entries(firebaseConfig)
+const requiredConfig = {
+  apiKey: firebaseConfig.apiKey,
+  authDomain: firebaseConfig.authDomain,
+  projectId: firebaseConfig.projectId,
+  appId: firebaseConfig.appId,
+};
+
+const missingConfig = Object.entries(requiredConfig)
   .filter(([, value]) => !value)
   .map(([key]) => key);
 
-if (missingConfig.length > 0) {
+if (typeof window !== 'undefined' && missingConfig.length > 0) {
   throw new Error(`Configuração do Firebase incompleta: ${missingConfig.join(', ')}`);
 }
 
